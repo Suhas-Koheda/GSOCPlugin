@@ -1,8 +1,8 @@
 plugins {
-    kotlin("jvm") version "1.9.24" // Use stable version
+    kotlin("jvm") version "1.9.24"
     `kotlin-dsl`
     `maven-publish`
-    `java-gradle-plugin` // Add this for better plugin support
+    `java-gradle-plugin`
 }
 
 group = "dev.haas"
@@ -27,7 +27,7 @@ gradlePlugin {
     plugins {
         create("kotlinPlugin") {
             id = "dev.haas.kotlinplugin"
-            implementationClass = "dev.haas.KotlinProjectExtension"
+            implementationClass = "dev.haas.SourceInspectionPlugin"
         }
     }
 }
@@ -36,6 +36,10 @@ publishing {
     publications {
         create<MavenPublication>("maven") {
             from(components["java"])
+            // Add these to ensure proper plugin marker publication
+            groupId = "dev.haas"
+            artifactId = "kotlinplugin"
+            version = "1.0.0"
         }
     }
     repositories {
