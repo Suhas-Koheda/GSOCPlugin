@@ -23,7 +23,14 @@ kotlin {
     jvmToolchain(17)
 }
 
-
+gradlePlugin {
+    plugins {
+        create("kotlinPlugin") {
+            id = "dev.haas.kotlinplugin"
+            implementationClass = "dev.haas.KotlinProjectExtension"
+        }
+    }
+}
 
 publishing {
     publications {
