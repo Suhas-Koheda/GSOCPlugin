@@ -36,7 +36,6 @@ publishing {
     publications {
         create<MavenPublication>("maven") {
             from(components["java"])
-            // Add these to ensure proper plugin marker publication
             groupId = "dev.haas"
             artifactId = "kotlinplugin"
             version = "1.0.0"
