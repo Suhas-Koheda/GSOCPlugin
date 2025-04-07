@@ -1,4 +1,4 @@
-package dev.haas.dev.haas
+package dev.haas
 
 import org.gradle.api.*
 import org.gradle.api.tasks.*
@@ -21,9 +21,6 @@ class SourceInspectionTask : DefaultTask() {
 
 class SourceInspectionPlugin : Plugin<Project> {
     override fun apply(project: Project) {
-        project.tasks.register("inspectSources", SourceInspectionTask::class.java) {
-            group = "Custom Plugin"
-            description = "Inspects Kotlin source directories"
-        }
+        project.tasks.register("inspectSources", SourceInspectionTask::class.java)
     }
 }
