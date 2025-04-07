@@ -1,8 +1,7 @@
 plugins {
     kotlin("jvm") version "1.9.24"
-    `kotlin-dsl`
-    `maven-publish`
     `java-gradle-plugin`
+    `maven-publish`
 }
 
 group = "dev.haas"
@@ -16,7 +15,6 @@ repositories {
 dependencies {
     implementation(kotlin("stdlib"))
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.24")
-    testImplementation(kotlin("test"))
 }
 
 kotlin {
@@ -34,8 +32,7 @@ gradlePlugin {
 
 publishing {
     publications {
-        create<MavenPublication>("maven") {
-            from(components["java"])
+        create<MavenPublication>("pluginMaven") {
             groupId = "dev.haas"
             artifactId = "kotlinplugin"
             version = "1.0.0"
