@@ -21,24 +21,14 @@ kotlin {
     jvmToolchain(17)
 }
 
-gradlePlugin {
-    plugins {
-        create("kotlinPlugin") {
-            id = "dev.haas.kotlinplugin"
-            implementationClass = "dev.haas.SourceInspectionPlugin"
-        }
-    }
-}
-
 publishing {
     publications {
-        create<MavenPublication>("pluginMaven") {
+        create<MavenPublication>("maven") {
             groupId = "dev.haas"
-            artifactId = "kotlinplugin"
-            version = "1.0.0"
+            artifactId = "kotlingradleplugin"
+            version = "2.0"
+
+            from(components["java"])
         }
-    }
-    repositories {
-        mavenLocal()
     }
 }
